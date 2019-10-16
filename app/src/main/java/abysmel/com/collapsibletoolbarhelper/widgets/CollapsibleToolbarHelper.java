@@ -1,7 +1,5 @@
 package abysmel.com.collapsibletoolbarhelper.widgets;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -10,12 +8,12 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Build;
-import android.support.annotation.IntDef;
-import android.support.design.widget.AppBarLayout;
-import android.support.percent.PercentRelativeLayout;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.WindowInsetsCompat;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import androidx.annotation.IntDef;
+import com.google.android.material.appbar.AppBarLayout;
+import androidx.percentlayout.widget.PercentRelativeLayout;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -36,7 +34,7 @@ import abysmel.com.collapsibletoolbarhelper.helpers.ViewOffsetHelper;
  * Highly adapted from the Android Open Source CollapsingToolbarLayout. The control is designed to work as a
  * direct child of AppBarLayout to benefit from its OffsetChangedListener events
  */
-public class CollapsibleToolbarHelper extends android.support.percent.PercentRelativeLayout {
+public class CollapsibleToolbarHelper extends androidx.percentlayout.widget.PercentRelativeLayout {
 	//////////////////////////////////// CLASS MEMBERS /////////////////////////////////////////////
 	/**
 	 * Static Definitions
@@ -147,7 +145,7 @@ public class CollapsibleToolbarHelper extends android.support.percent.PercentRel
 		setWillNotDraw(false);
 
 		// Store the insets if the hierarchy has a fitSystemWindows
-		ViewCompat.setOnApplyWindowInsetsListener(this, new android.support.v4.view.OnApplyWindowInsetsListener() {
+		ViewCompat.setOnApplyWindowInsetsListener(this, new androidx.core.view.OnApplyWindowInsetsListener() {
 
 			@Override
 			public
@@ -239,7 +237,6 @@ public class CollapsibleToolbarHelper extends android.support.percent.PercentRel
                     biggestChild = child;
                 }
             }
-
             getViewOffsetHelper(child).onViewLayout();
         }
 
